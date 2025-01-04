@@ -26,13 +26,13 @@ export enum ClusterNetwork {
 export const defaultClusters: Cluster[] = [
   {
     name: 'devnet',
-    endpoint: clusterApiUrl('devnet'),
+    endpoint: 'https://yolane-wannof-fast-devnet.helius-rpc.com',
     network: ClusterNetwork.Devnet,
   },
   { name: 'local', endpoint: 'http://localhost:8899' },
   {
     name: 'testnet',
-    endpoint: clusterApiUrl('testnet'),
+    endpoint: 'https://api.testnet.solana.com',
     network: ClusterNetwork.Testnet,
   },
 ]

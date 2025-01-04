@@ -1,12 +1,12 @@
 [package]
-name = "basic"
+name = "stablesfun"
 version = "0.1.0"
-description = "Created with Anchor"
+description = "Stablesfun mint stablecoins"
 edition = "2021"
 
 [lib]
 crate-type = ["cdylib", "lib"]
-name = "basic"
+name = "stablesfun"
 
 [features]
 no-entrypoint = []
@@ -14,7 +14,10 @@ no-idl = []
 no-log-ix-name = []
 cpi = ["no-entrypoint"]
 default = []
-idl-build = ["anchor-lang/idl-build"]
+
 
 [dependencies]
-anchor-lang = "0.30.1"
+anchor-lang = { version = "0.29.0", features = ["init-if-needed"] }
+anchor-spl = { version = "0.29.0", features = ["token", "metadata"] }
+mpl-token-metadata = "3.2.3"
+switchboard-on-demand = "0.1.17"

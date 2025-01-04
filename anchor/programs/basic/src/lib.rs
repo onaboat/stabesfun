@@ -1,16 +1,34 @@
+pub mod constants;
+pub mod errors;
+pub mod instructions;
+pub mod state;
+
 use anchor_lang::prelude::*;
 
-declare_id!("6z68wfurCMYkZG51s1Et9BJEd9nJGUusjHXNt4dGbNNF");
+pub use constants::*;
+pub use instructions::*;
+pub use state::*;
+
+declare_id!("DTqVdCrLTfG2aeBoLjKAJ87TNgBXShrUm9jLpe9ikrJd");
 
 #[program]
-pub mod basic {
+pub mod stablesfun {
     use super::*;
 
-    pub fn greet(_ctx: Context<Initialize>) -> Result<()> {
-        msg!("GM!");
-        Ok(())
+    pub fn init_coin_instruction(ctx: Context<InitToken>, metadata: InitCoinParams, currency: String, image:String, description:String) -> Result<()> {
+        init_token(ctx, metadata, currency, image, description)
     }
-}
 
-#[derive(Accounts)]
-pub struct Initialize {}
+    pub fn mint_coins_instruction(ctx: Context<MintTokens>, sol_amount: u64, symbol: String) -> Result<()> {
+        mint_tokens(ctx, sol_amount, symbol)
+    }
+
+    pub fn burn_coins_instruction(ctx: Context<BurnTokens>, quantity: u64, symbol: String) -> Result<()> {
+        burn_tokens(ctx, quantity, symbol)
+    }
+
+    pub fn get_price(ctx: Context<Price>) -> Result<()> {
+        price(ctx)
+    }
+    
+}

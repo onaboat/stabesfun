@@ -1,18 +1,23 @@
 [toolchain]
-anchor_version = "0.30.1"
+anchor_version = "0.29.0"
 
 [features]
 resolution = true
+seeds = true  
 skip-lint = false
 
 [programs.localnet]
-basic = "6z68wfurCMYkZG51s1Et9BJEd9nJGUusjHXNt4dGbNNF"
+stablesfun = "DTqVdCrLTfG2aeBoLjKAJ87TNgBXShrUm9jLpe9ikrJd"
+
+[programs.devnet]
+stablesfun = "DTqVdCrLTfG2aeBoLjKAJ87TNgBXShrUm9jLpe9ikrJd"
+
 
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "Localnet"
+cluster = "devnet"
 wallet = "~/.config/solana/id.json"
 
 [scripts]
