@@ -2,8 +2,9 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { ReactNode, Suspense } from 'react'
+import { ReactNode, Suspense, useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
+import Image from 'next/image'
 
 import { AccountChecker } from '../account/account-ui'
 import { ClusterChecker } from '../cluster/cluster-ui'
@@ -18,6 +19,7 @@ interface Props {
 
 export function UiLayout({ children, links }: Props) {
   const pathname = usePathname()
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const tickerItems = [
     { symbol: 'SOL', price: '$216.90', change: 12.5 },
@@ -30,12 +32,64 @@ export function UiLayout({ children, links }: Props) {
 
 
   return (
-    <div className="h-screen flex flex-row">
-      <div className="w-1/4 h-screen min-w-[330px]">
+    <div className="h-screen flex flex-col md:flex-row">
+      {/* Mobile Header */}
+      <div className="md:hidden bg-base-100 p-4 flex justify-between items-center border-b">
+        {/* Menu and Logo */}
+        <div className="flex items-center gap-3">
+          <button 
+            className="btn btn-square btn-ghost"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-5 h-5 stroke-current">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+          <Image
+            src="/stables.png"
+            alt="Logo"
+            width={120}
+            height={120}
+            className="w-8 h-8"
+          />
+        </div>
+
+        {/* Create Button */}
+        <Link
+          href="/stablesfun"
+          className="btn btn-primary btn-sm"
+        >
+          Create Your Own Stablecoin
+        </Link>
+      </div>
+
+      {/* Navigation Sidebar */}
+      <div className={`
+        w-full md:w-1/4 md:min-w-[330px] 
+        ${isMobileMenuOpen ? 'block' : 'hidden'} 
+        md:block 
+        absolute md:relative 
+        z-50 md:z-auto 
+        bg-base-100
+        h-screen
+      `}>
+        {/* Close button for mobile */}
+        <div className="md:hidden p-4 flex justify-end">
+          <button 
+            className="btn btn-square btn-ghost"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-5 h-5 stroke-current">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
         <LHSNAV />
       </div>
-      <div className="w-3/4 bg-primary overflow-auto">
-      <Ticker items={tickerItems} />
+
+      {/* Main Content */}
+      <div className="w-full md:w-3/4 bg-primary overflow-auto">
+        <Ticker items={tickerItems} />
         <ClusterChecker>
           <AccountChecker />
           <Suspense fallback={<span className="loading loading-spinner loading-lg"></span>}>

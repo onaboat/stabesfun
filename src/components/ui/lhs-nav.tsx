@@ -15,9 +15,9 @@ export function LHSNAV() {
             <div className="space-y-4">
                 <a href="/stablesfun" className="card !bg-wild-orange hover:!bg-wild-orange transition-all hover:shadow-[5px_5px_0px_0px_rgba(0,0,0)] ">
                     <div className="card-body items-center text-center">
-                        <h2 className="card-title text-white">Create your own Stable Coin</h2>
+                        <h2 className="card-title text-white">Create your own Stablecoin</h2>
                         <br />
-                        <p className="text-white">Easily create and mint your own Stable coin without coding.</p>
+                        <p className="text-white">Easily create and mint your own Stablecoin without coding.</p>
                         <div className="card-actions justify-end">
                             {/* <span className="btn btn-primary">Start</span> */}
                         </div>

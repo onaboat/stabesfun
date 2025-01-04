@@ -179,7 +179,8 @@ export const InitStatic: FC<InitStaticProps> = ({ }) => {
 
             const uploadedUri = `https://gateway.pinata.cloud/ipfs/${upload.IpfsHash}`
 
-
+            toast.success('Sending transaction');
+            
             // Derive the mint PDA
             const [mint] = web3.PublicKey.findProgramAddressSync(
                 [Buffer.from("mint"), publicKey.toBuffer(), Buffer.from(symbol)],
@@ -232,6 +233,8 @@ export const InitStatic: FC<InitStaticProps> = ({ }) => {
                 .accounts(context)
                 .transaction();
 
+            
+
             // --- Step 4: Sign and Send Transaction ---
             tx.recentBlockhash = (await connection.getLatestBlockhash()).blockhash;
             tx.feePayer = publicKey;
@@ -241,7 +244,7 @@ export const InitStatic: FC<InitStaticProps> = ({ }) => {
             const simulation = await connection.simulateTransaction(tx);
             console.log("Simulation Result:", simulation);
 
-            toast.success("Sending transaction")
+            toast.success("Sending transaction...")
 
             // --- Step 4.2: Send Transaction ---
 
@@ -260,7 +263,7 @@ export const InitStatic: FC<InitStaticProps> = ({ }) => {
 
             setTimeout(() => {
                 router.push(`/stablecoins/${mint.toBase58()}`);
-            }, 1000);
+            }, 2000);
 
         } catch (error) {
             toast.error('Error! Only 1 token with the same symbol can be minted per wallet.');

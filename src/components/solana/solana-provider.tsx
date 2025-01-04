@@ -13,6 +13,7 @@ import {
 import { WalletModalProvider } from '@solana/wallet-adapter-react-ui'
 import { ReactNode, useCallback, useMemo } from 'react'
 import { useCluster } from '../cluster/cluster-data-access'
+import { PhantomWalletAdapter, SolflareWalletAdapter } from '@solana/wallet-adapter-wallets'
 
 require('@solana/wallet-adapter-react-ui/styles.css')
 
@@ -23,13 +24,19 @@ export const WalletButton = dynamic(async () => (await import('@solana/wallet-ad
 export function SolanaProvider({ children }: { children: ReactNode }) {
   const { cluster } = useCluster()
   const endpoint = useMemo(() => cluster.endpoint, [cluster])
+  const wallets = useMemo(
+    () => [
+      new PhantomWalletAdapter(),
+    ],
+    []
+  )
   const onError = useCallback((error: WalletError) => {
     console.error(error)
   }, [])
 
   return (
     <ConnectionProvider endpoint={endpoint}>
-      <WalletProvider wallets={[]} onError={onError} autoConnect={true}>
+      <WalletProvider wallets={wallets} onError={onError} autoConnect={true}>
         <WalletModalProvider>{children}</WalletModalProvider>
       </WalletProvider>
     </ConnectionProvider>

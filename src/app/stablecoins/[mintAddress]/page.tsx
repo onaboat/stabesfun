@@ -42,7 +42,7 @@ export default function StablecoinPage() {
   const mintPubkey = new PublicKey(mintAddress)
 
   const [amount, setAmount] = useState<number>(0)
-
+  const [burnAmount, setBurnAmount] = useState<number>(0)
   const [activeTab, setActiveTab] = useState('buy');
 
   useEffect(() => {
@@ -156,7 +156,7 @@ export default function StablecoinPage() {
     // Create the mint instruction
     const burnIx = await program.methods
       .burnCoinsInstruction(
-        new BN(20_000_000), // 0.02 SOL
+        new BN(burnAmount * 10 ** mintData.decimals), // 0.02 SOL
         mintData.symbol
       )
       .accounts({
@@ -324,8 +324,8 @@ export default function StablecoinPage() {
                       <div className="join w-full">
                         <input
                           type="number"
-                          value={amount}
-                          onChange={(e) => setAmount(Number(e.target.value))}
+                          value={burnAmount}
+                          onChange={(e) => setBurnAmount(Number(e.target.value))}
                           placeholder="Enter amount"
                           className="input input-bordered join-item w-full"
                           step="0.000001"
@@ -340,7 +340,7 @@ export default function StablecoinPage() {
                         </button>
                       </div>
                       <div className="text-sm text-gray-600">
-                        {amount > 0 ? `${amount * 176} ${mintData.symbol} → ${amount} SOL` : `Enter amount of ${mintData.symbol} to sell for SOL`}
+                        {burnAmount > 0 ? `${burnAmount * 176} ${mintData.symbol} → ${burnAmount} SOL` : `Enter amount of ${mintData.symbol} to sell for SOL`}
                       </div>
                     </div>
                   </div>
