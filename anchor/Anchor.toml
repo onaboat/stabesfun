@@ -7,10 +7,10 @@ seeds = true
 skip-lint = false
 
 [programs.localnet]
-stablesfun = "DTqVdCrLTfG2aeBoLjKAJ87TNgBXShrUm9jLpe9ikrJd"
+stablesfun = "7jGe9v39k4JzkwT4pZ7BqjBx9QCtbzGLg4UDj7rTTbAn"
 
 [programs.devnet]
-stablesfun = "DTqVdCrLTfG2aeBoLjKAJ87TNgBXShrUm9jLpe9ikrJd"
+stablesfun = "7jGe9v39k4JzkwT4pZ7BqjBx9QCtbzGLg4UDj7rTTbAn"
 
 
 [registry]

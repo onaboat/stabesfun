@@ -9,7 +9,7 @@ pub use constants::*;
 pub use instructions::*;
 pub use state::*;
 
-declare_id!("DTqVdCrLTfG2aeBoLjKAJ87TNgBXShrUm9jLpe9ikrJd");
+declare_id!("7jGe9v39k4JzkwT4pZ7BqjBx9QCtbzGLg4UDj7rTTbAn");
 
 #[program]
 pub mod stablesfun {
