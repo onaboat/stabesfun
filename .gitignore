@@ -36,6 +36,7 @@ yarn-error.log*
 next-env.d.ts
 tmp
 
+.env.local
+
 .cursorrules
-src/components/stablesfun/constants.tsx
 src/components/stablesfun/archive/*
