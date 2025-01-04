@@ -1,94 +1,43 @@
-# stablesfun
+# Stables.fun
 
-## Getting Started
+Stables.fun – Decentralized Stablecoins on Solana backed by Etherfuse Stablebonds.
 
-### Prerequisites
+Overview
+Stables.fun is a decentralized application (dApp) built on the Solana blockchain, enabling users to mint stablecoins backed by real-world assets like government bonds via Stablebonds. It blends traditional finance with blockchain technology to deliver secure, transparent, and yield-bearing tokens.
 
-- Node v18.18.0 or higher
+Inspired by platforms like Pump.fun, Stables.fun allows users to create custom stablecoins tied to fiat currencies, earning 6–12% annual returns through Etherfuse Stablebonds. 
 
+Features
+	•	Real Asset Backing – Stability through commodity-pegged value.
+	•	High-Yield Growth – Earn 6–12% annual returns via Stablebonds.
+	•	Decentralized Security – Transparent, blockchain-powered transactions.
+	•	Scalable Design – Future-proof finance ready for global adoption.
+
+## Features
+
+- Create custom stablecoins
+- Mint and burn tokens
+- Real-time price feeds
+- Wallet integration
+- Token metadata management
+- Asset-backed stability
+
+## Prerequisites
+
+- Node.js v18.18.0 or higher
 - Rust v1.77.2 or higher
 - Anchor CLI 0.30.1 or higher
 - Solana CLI 1.18.17 or higher
+- PNPM package manager
 
-### Installation
+## Project Structure
 
-#### Clone the repo
+- `/anchor` - Solana program (smart contract) written in Rust
+- `/src` - Next.js frontend application
+- `/tests` - Test files for the Solana program
 
-```shell
-git clone <repo-url>
-cd <repo-name>
-```
+## Onchain contract
 
-#### Install Dependencies
+- https://solscan.io/account/7jGe9v39k4JzkwT4pZ7BqjBx9QCtbzGLg4UDj7rTTbAn
 
-```shell
-pnpm install
-```
 
-#### Start the web app
-
-```
-pnpm dev
-```
-
-## Apps
-
-### anchor
-
-This is a Solana program written in Rust using the Anchor framework.
-
-#### Commands
-
-You can use any normal anchor commands. Either move to the `anchor` directory and run the `anchor` command or prefix the command with `pnpm`, eg: `pnpm anchor`.
-
-#### Sync the program id:
-
-Running this command will create a new keypair in the `anchor/target/deploy` directory and save the address to the Anchor config file and update the `declare_id!` macro in the `./src/lib.rs` file of the program.
-
-You will manually need to update the constant in `anchor/lib/basic-exports.ts` to match the new program id.
-
-```shell
-pnpm anchor keys sync
-```
-
-#### Build the program:
-
-```shell
-pnpm anchor-build
-```
-
-#### Start the test validator with the program deployed:
-
-```shell
-pnpm anchor-localnet
-```
-
-#### Run the tests
-
-```shell
-pnpm anchor-test
-```
-
-#### Deploy to Devnet
-
-```shell
-pnpm anchor deploy --provider.cluster devnet
-```
-
-### web
-
-This is a React app that uses the Anchor generated client to interact with the Solana program.
-
-#### Commands
-
-Start the web app
-
-```shell
-pnpm dev
-```
-
-Build the web app
-
-```shell
-pnpm build
-```
