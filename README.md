@@ -37,10 +37,10 @@ Features
 - `/tests` - Test files for the Solana program
 
 ## Onchain contract
-[https://solscan.io/account/7jGe9v39k4JzkwT4pZ7BqjBx9QCtbzGLg4UDj7rTTbAn](https://solscan.io/account/7jGe9v39k4JzkwT4pZ7BqjBx9QCtbzGLg4UDj7rTTbAn)
+[https://solscan.io/account/7jGe9v39k4JzkwT4pZ7BqjBx9QCtbzGLg4UDj7rTTbAn?cluster=devnet](https://solscan.io/account/7jGe9v39k4JzkwT4pZ7BqjBx9QCtbzGLg4UDj7rTTbAn?cluster=devnet)
 
 ## Switchboard feed 
-[- https://switchboard.xyz/feed/66bVyxuQ6a4XCAqQHWoiCbG6wjZsZkHgwbGVY7NqQjS5](https://ondemand.switchboard.xyz/solana/devnet/feed/66bVyxuQ6a4XCAqQHWoiCbG6wjZsZkHgwbGVY7NqQjS5)
+[https://switchboard.xyz/feed/66bVyxuQ6a4XCAqQHWoiCbG6wjZsZkHgwbGVY7NqQjS5](https://ondemand.switchboard.xyz/solana/devnet/feed/66bVyxuQ6a4XCAqQHWoiCbG6wjZsZkHgwbGVY7NqQjS5)
 
 
 
