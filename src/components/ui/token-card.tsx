@@ -1,3 +1,5 @@
+import { ellipsify } from "./ui-layout";
+
 interface TokenCardProps {
   imageSrc: string;
   altText: string;
@@ -24,7 +26,7 @@ export function TokenCard({ imageSrc, altText, title, mintAddress, description, 
             <div className="badge badge-outline rounded-none">{currency}</div>
         </div>
         <h2 className="card-title text-xl">{title}</h2>
-        <div className="text-xs opacity-75 mb-1">mint: {mintAddress}</div>
+        <div className="text-xs opacity-75 mb-1">mint: {ellipsify(mintAddress, 8)}</div>
         <p className="text-sm">{description}</p>
         <div className="card-actions flex flex-wrap gap-2 mt-2">
          
