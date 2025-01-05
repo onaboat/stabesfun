@@ -12,6 +12,7 @@ import Link from 'next/link'
 import { WalletButton } from '@/components/solana/solana-provider'
 import ReactCanvasConfetti from 'react-canvas-confetti';
 import type { CreateTypes } from 'canvas-confetti';
+import { ellipsify } from '@/components/ui/ui-layout'
 
 export default function StablecoinPage() {
   const { publicKey, sendTransaction } = useWallet()
@@ -143,6 +144,16 @@ export default function StablecoinPage() {
 
     toast.success("Transaction confirmed")
     fire()
+    toast.success(
+      <div className="font-mono">
+        Transaction:
+        <div>
+          <a href={`https://explorer.solana.com/tx/${signature}?cluster=devnet`} target="_blank" rel="noreferrer">
+            {ellipsify(signature, 8)}
+          </a>
+        </div>
+      </div>
+    )
   }
 
   const handleTestBurn = async () => {
@@ -190,7 +201,17 @@ export default function StablecoinPage() {
     const burnConfirmation = await connection.confirmTransaction(burnSignature)
     console.log("Transaction confirmed:", burnConfirmation)
 
-    toast.success("Burn confirmed")
+    toast.success("Sell confirmed")
+    toast.success(
+      <div className="font-mono">
+        Transaction:
+        <div>
+          <a href={`https://explorer.solana.com/tx/${burnSignature}?cluster=devnet`} target="_blank" rel="noreferrer">
+            {ellipsify(burnSignature, 8)}
+          </a>
+        </div>
+      </div>
+    )
 
   }
 

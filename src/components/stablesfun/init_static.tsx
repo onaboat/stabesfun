@@ -11,6 +11,7 @@ import { toast } from 'react-hot-toast'
 import { PinataSDK } from "pinata-web3";
 import ReactCanvasConfetti from 'react-canvas-confetti';
 import type { CreateTypes } from 'canvas-confetti';
+import { ellipsify } from '../ui/ui-layout'
 
 const pinata = new PinataSDK({
     pinataJwt: NEXT_PUBLIC_PINATA_JWT,
@@ -260,10 +261,20 @@ export const InitStatic: FC<InitStaticProps> = ({ }) => {
 
             toast.success('Token created successfully!');
             fire();
+            toast.success(
+                <div className="font-mono">
+                  Transaction:
+                  <div>
+                    <a href={`https://explorer.solana.com/tx/${sig}?cluster=devnet`} target="_blank" rel="noreferrer">
+                      {ellipsify(sig, 8)}
+                    </a>
+                  </div>
+                </div>
+              )
 
             setTimeout(() => {
                 router.push(`/stablecoins/${mint.toBase58()}`);
-            }, 2000);
+            }, 3000);
 
         } catch (error) {
             toast.error('Error! Only 1 token with the same symbol can be minted per wallet.');
