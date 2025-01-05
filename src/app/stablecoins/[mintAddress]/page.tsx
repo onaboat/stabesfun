@@ -361,7 +361,7 @@ export default function StablecoinPage() {
                         </button>
                       </div>
                       <div className="text-sm text-gray-600">
-                        {burnAmount > 0 ? `${burnAmount * 176} ${mintData.symbol} → ${burnAmount} SOL` : `Enter amount of ${mintData.symbol} to sell for SOL`}
+                        {burnAmount > 0 ? `${burnAmount} ${mintData.symbol} → ${burnAmount / 176} SOL` : `Enter amount of ${mintData.symbol} to sell for SOL`}
                       </div>
                     </div>
                   </div>
