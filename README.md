@@ -1,5 +1,7 @@
 # Stables.fun
 
+[https://stabesfun.vercel.app](https://stabesfun.vercel.app)
+
 Stables.fun – Decentralized Stablecoins on Solana backed by Etherfuse Stablebonds.
 
 Overview
