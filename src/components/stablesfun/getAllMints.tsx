@@ -63,7 +63,7 @@ export default function GetAllMints() {
           <span className="loading loading-spinner loading-lg"></span>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {vaults.map((vault) => (
             <Link 
               href={`/stablecoins/${vault.mint}`} 
@@ -74,7 +74,7 @@ export default function GetAllMints() {
                 altText={vault.name}
                 title={vault.name}
                 description={vault.description}
-                createdBy={vault.pubkey.slice(0, 4) + '...' + vault.pubkey.slice(-4)}
+                mintAddress={vault.mint.toBase58()}
                 currency={vault.currency}
                 symbol={vault.symbol}
               />
